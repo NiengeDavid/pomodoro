@@ -15,6 +15,8 @@ import { useThemeContext } from '@/hooks/useThemeContext'
 import { Footer } from '@/components/footer/'
 import { ThemeChangerProvider } from '@/components/ui/themes/theme-context'
 
+import { ClerkProvider } from '@clerk/nextjs'
+
 /**
  * Someone complained last time I have a funny layout, not anymore
  */
@@ -22,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ThemeChangerProvider>
       <InnerLayout>
-        {children} {/* something holy holy */}
+        {children} {/* pages pass*/}
       </InnerLayout>
     </ThemeChangerProvider>
   )
@@ -40,32 +42,32 @@ const InnerLayout: React.FC<InnerLayoutProps> = ({ children }) => {
   const cursorClass = isDarkCursor ? 'cursor-dark' : 'cursor-light'
 
   return (
-    <html lang='en' suppressHydrationWarning={true} data-theme='cupcake'>
-      {/* Metadata */}
-      <head>
-        <title>{'Thien Nguyen'}</title>
-        <meta content={'Thienguen'} property='og:title' />
-        <meta content={'Recreating Pomodoro, cause I said so'} property='og:description' />
-        <link id="favicon" rel="icon" href="/fav/favicon-gray-16x16.png" />
-      </head>
+    <ClerkProvider>
+      <html lang='en' suppressHydrationWarning={true} data-theme='cupcake'>
+        {/* Metadata */}
+        <head>
+          <title>{'eHA-Focus'}</title>
+          <meta content={'eHA-Focus'} property='og:title' />
+          <meta content={'Recreating Pomodoro, and heatheir EHA workspaces'} property='og:description' />
+          <link id='favicon' rel='icon' href='/fav/favicon-gray-16x16.png' />
+        </head>
 
-      {/* Body layout */}
-      <body className={'flex min-h-screen flex-col font-dosis antialiased'} suppressHydrationWarning={true}>
-        {/* Custom cursor */}
-        <div
-          ref={cursorRef}
-          className={`pointer-events-none fixed z-[9999] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 lg:block ${cursorClass}`}
-        />
+        {/* Body layout */}
+        <body className={'flex min-h-screen flex-col font-dosis antialiased'} suppressHydrationWarning={true}>
+          {/* Custom cursor */}
+          <div
+            ref={cursorRef}
+            className={`pointer-events-none fixed z-[9999] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 lg:block ${cursorClass}`}
+          />
 
-        {/* The actual body, everything */}
-        <div className='grow'>
-          {children}
-        </div>
+          {/* The actual body, everything */}
+          <div className='grow'>{children}</div>
 
-        {/* Grow till footer hit the end of viewport */}
-        <Footer />
-      </body>
-    </html>
+          {/* Grow till footer hit the end of viewport */}
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
 

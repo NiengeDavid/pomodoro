@@ -11,11 +11,15 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.5.1",
+    "@hello-pangea/dnd": "^17.0.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "clsx": "^2.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "dayjs": "^1.11.9",
     "dotenv": "^16.3.1",
     "eslint": "8.49.0",
@@ -23,6 +27,7 @@
     "eslint-config-prettier": "^9.0.0",
     "framer-motion": "^10.16.4",
     "gsap": "^3.12.2",
+    "lucide-react": "^0.462.0",
     "next": "^13.4.12",
     "postcss": "8.4.29",
     "prettier": "^3.0.3",
@@ -32,6 +37,7 @@
     "react-icons": "^4.11.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2",
     "use-lanyard": "^1.4.4",
     "use-sound": "^4.0.1"

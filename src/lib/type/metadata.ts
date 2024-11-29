@@ -6,13 +6,13 @@ export const metadata = {
   language: 'en-us',
   theme   : 'system',
 
-  headerTitle: 'blank_dreams',
-  description: 'Isekai already',
+  headerTitle: 'eha-focus',
+  description: 'healthier workspace',
 
-  name   : 'Thienguen',
-  creator: '/thienguen',
+  name   : 'eHA Focus',
+  creator: '/ehafocus',
 
-  github   : 'https://github.com/Thienguen/pomodoro-re',
-  discord  : 'https://discordapp.com/users/481754320778428418',
-  linkedin : 'https://www.linkedin.com/in/thien-nguyen-2a4a37234/',
+  github   : 'https://github.com/eHealthAfrica/eha-focus',
+  discord  : 'https://github.com/eHealthAfrica/eha-focus',
+  linkedin : 'https://github.com/eHealthAfrica/eha-focus',
 }

@@ -116,7 +116,7 @@ const ControlButtons = () => {
       default:
         return (
           <div className='mx-auto flex items-center justify-center text-7xl '>
-            Something has gone wrong, please refresh the page, Thien is too lazy to fix this
+            Something has gone wrong, please refresh the page, David is too lazy to fix this
           </div>
         )
     }

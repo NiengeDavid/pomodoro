@@ -13,6 +13,7 @@
 import { Header } from '@/components/header/'
 import { PomodoroContextProvider } from '@/components/provider/PomodoroContextProvider'
 import { MainScreen, LapseCounter, Timer, ControlButtons, OptionsBar } from '@/components/home/'
+import { Todos } from '@/components/tasks'
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
           <ControlButtons />
           <LapseCounter />
         </MainScreen>
+        <Todos />
       </PomodoroContextProvider>
     </>
   )

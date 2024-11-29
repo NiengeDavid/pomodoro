@@ -4,16 +4,18 @@
 import { cn } from '@/lib/util/cn'
 import { useCallback, useState } from 'react'
 import { metadata } from '@/lib/type/metadata'
+import { ClerkProvider, SignedIn, SignedOut, UserButton, useUser } from '@clerk/nextjs'
 
 /* Icons */
-import { BsGear } from 'react-icons/bs'        // Imported gear icon
+import { BsGear } from 'react-icons/bs' // Imported gear icon
 import { ImProfile } from 'react-icons/im'
-import { BiUserCircle } from 'react-icons/bi'  // Imported user icon
+import { BiUserCircle } from 'react-icons/bi' // Imported user icon
 import { SiBuymeacoffee } from 'react-icons/si'
 
 /* Components */
 import { SettingModal } from '@/components/header/index'
 import { MenuItem, Menu, HeaderButton } from '@/components/header/index'
+import Link from 'next/link'
 
 const RightOptions: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -29,7 +31,16 @@ const RightOptions: React.FC = () => {
       <HeaderButton onClick={onClick}>
         <div className={cn('flex flex-row items-center')}>
           <BiUserCircle className={cn('mr-1 h-7 w-7')} /> {/* User icon */}
-          Login
+          <ClerkProvider>
+            <SignedOut>
+              <Link href='/signup'>
+                <p className=''>Login</p>
+              </Link>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </ClerkProvider>
         </div>
       </HeaderButton>
 
@@ -62,7 +73,16 @@ const RightOptions: React.FC = () => {
             </a>
             <a>
               <MenuItem icon={<ImProfile className={cn('h-5 w-5 opacity-80')} />}>
-                <p className='ml-2'>No login, too much works</p>
+                <ClerkProvider>
+                  <SignedOut>
+                    <Link href='/signup'>
+                      <button className='w-full rounded px-3 py-2 transition duration-200'>Sign in</button>
+                    </Link>
+                  </SignedOut>
+                  <SignedIn>
+                    <UserButton />
+                  </SignedIn>
+                </ClerkProvider>
               </MenuItem>
             </a>
           </Menu>
